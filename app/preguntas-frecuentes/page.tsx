@@ -76,7 +76,7 @@ export default function PreguntasFrecuentes() {
                     <p>Aceptamos todos estos medios de pago:</p>
                     <ul className="list-disc list-inside space-y-1 ml-4">
                       <li>Todas las tarjetas de crédito y débito</li>
-                      <li>Hasta 6 cuotas sin interés</li>
+                      <li>Hasta 1 o 3 cuotas sin interés</li>
                       <li>Mercado Pago</li>
                       <li>Transferencia bancaria</li>
                       <li>Efectivo en puntos de pago</li>

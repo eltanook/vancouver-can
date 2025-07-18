@@ -55,7 +55,7 @@ export default function ComoComprar() {
               <h3 className="text-xl font-semibold mb-3 dark:text-white">Elegí cómo pagar</h3>
               <p className="text-gray-600 dark:text-gray-300">
                 Aceptamos todos los medios de pago: tarjetas, transferencia, Mercado Pago y efectivo.
-                ¡Hasta 6 cuotas sin interés!
+                ¡Hasta 1 o 3 cuotas sin interés!
               </p>
             </div>
 
@@ -111,7 +111,7 @@ export default function ComoComprar() {
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-black dark:bg-white rounded-full"></span>
-                    <span>Hasta 6 cuotas sin interés</span>
+                    <span>Hasta 1 o 3 cuotas sin interés</span>
                   </p>
                   <p className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-black dark:bg-white rounded-full"></span>

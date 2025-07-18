@@ -129,13 +129,13 @@ function HeaderInternalContent() {
                 onClick={() => setIsCartOpen(true)}
               >
                 <span className="text-xs sm:text-sm font-medium">
-                  ${cartTotal > 999999 ? `${Math.floor(cartTotal / 1000)}k` : cartTotal.toLocaleString()}
+                  ${(cartTotal || 0) > 999999 ? `${Math.floor((cartTotal || 0) / 1000)}k` : (cartTotal || 0).toLocaleString()}
                 </span>
                 <div className="relative">
                   <ShoppingCart className="h-4 w-4" />
-                  {cartItemsCount > 0 && (
+                  {(cartItemsCount || 0) > 0 && (
                     <span className="cart-counter absolute -top-3 -right-3 text-xs rounded-full w-4 h-4 flex items-center justify-center text-black font-bold text-[10px] leading-none">
-                      {cartItemsCount > 9 ? "9+" : cartItemsCount}
+                      {(cartItemsCount || 0) > 9 ? "9+" : (cartItemsCount || 0)}
                     </span>
                   )}
                 </div>

@@ -1728,16 +1728,26 @@ export const useStore = create<StoreState>((set, get) => ({
   paginationMemory: {},
 
   addToCart: (product, quantity, color, size) => {
+    // Validar que todos los parámetros sean válidos
+    if (!product || !product.id) {
+      console.error('Producto inválido para agregar al carrito')
+      return
+    }
+    
+    const validQuantity = Math.max(1, Math.min(quantity || 1, 10))
+    const validColor = color || 'default'
+    const validSize = size || 'default'
+    
     set((state) => {
       const existingItem = state.cartItems.find(
-        (item) => item.product.id === product.id && item.selectedColor === color && item.selectedSize === size,
+        (item) => item.product.id === product.id && item.selectedColor === validColor && item.selectedSize === validSize,
       )
 
       if (existingItem) {
-        const newQuantity = Math.min(existingItem.quantity + quantity, 10)
+        const newQuantity = Math.min(existingItem.quantity + validQuantity, 10)
         return {
           cartItems: state.cartItems.map((item) =>
-            item.product.id === product.id && item.selectedColor === color && item.selectedSize === size
+            item.product.id === product.id && item.selectedColor === validColor && item.selectedSize === validSize
               ? { ...item, quantity: newQuantity }
               : item,
           ),
@@ -1745,29 +1755,36 @@ export const useStore = create<StoreState>((set, get) => ({
       }
 
       return {
-        cartItems: [...state.cartItems, { product, quantity: Math.min(quantity, 10), selectedColor: color, selectedSize: size }],
+        cartItems: [...state.cartItems, { product, quantity: validQuantity, selectedColor: validColor, selectedSize: validSize }],
       }
     })
   },
 
   removeFromCart: (productId, color, size) => {
+    const validColor = color || 'default'
+    const validSize = size || 'default'
+    
     set((state) => ({
       cartItems: state.cartItems.filter(
-        (item) => !(item.product.id === productId && item.selectedColor === color && item.selectedSize === size),
+        (item) => !(item.product.id === productId && item.selectedColor === validColor && item.selectedSize === validSize),
       ),
     }))
   },
 
   updateQuantity: (productId, color, size, quantity) => {
-    if (quantity <= 0) {
-      get().removeFromCart(productId, color, size)
+    const validQuantity = Math.max(1, Math.min(quantity || 1, 10))
+    const validColor = color || 'default'
+    const validSize = size || 'default'
+    
+    if (validQuantity <= 0) {
+      get().removeFromCart(productId, validColor, validSize)
       return
     }
 
     set((state) => ({
       cartItems: state.cartItems.map((item) =>
-        item.product.id === productId && item.selectedColor === color && item.selectedSize === size
-          ? { ...item, quantity: Math.min(quantity, 10) }
+        item.product.id === productId && item.selectedColor === validColor && item.selectedSize === validSize
+          ? { ...item, quantity: validQuantity }
           : item,
       ),
     }))
@@ -1801,12 +1818,16 @@ export const useStore = create<StoreState>((set, get) => ({
 
   getCartTotal: () => {
     const { cartItems } = get()
-    return cartItems.reduce((total, item) => total + (item.product.cashPrice || item.product.price) * item.quantity, 0)
+    return cartItems.reduce((total, item) => {
+      const price = item.product.cashPrice || item.product.price || 0
+      const quantity = item.quantity || 0
+      return total + (price * quantity)
+    }, 0)
   },
 
   getCartItemsCount: () => {
     const { cartItems } = get()
-    return cartItems.reduce((count, item) => count + item.quantity, 0)
+    return cartItems.reduce((count, item) => count + (item.quantity || 0), 0)
   },
 
   getFilteredProducts: () => {

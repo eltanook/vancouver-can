@@ -19,12 +19,12 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
     let message = "¡Hola! Me gustaría hacer el siguiente pedido:\n\n"
     cartItems.forEach((item) => {
       message += `• ${item.product.name}\n`
-      message += `  - Talle: ${item.selectedSize}\n`
-      message += `  - Color: ${item.selectedColor}\n`
-      message += `  - Cantidad: ${item.quantity}\n`
-      message += `  - Precio unitario: $${item.product.price.toLocaleString()}\n\n`
+      message += `  - Talle: ${item.selectedSize || 'No especificado'}\n`
+      message += `  - Color: ${item.selectedColor || 'No especificado'}\n`
+      message += `  - Cantidad: ${item.quantity || 0}\n`
+      message += `  - Precio unitario: $${(item.product.price || 0).toLocaleString()}\n\n`
     })
-    message += `\nTotal: $${total.toLocaleString()}`
+    message += `\nTotal: $${(total || 0).toLocaleString()}`
 
     // Codificar el mensaje para la URL
     const encodedMessage = encodeURIComponent(message)
@@ -95,7 +95,7 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
                           >
                             <Minus className="h-3 w-3" />
                           </Button>
-                          <span className="text-sm font-medium dark:text-white">{item.quantity}</span>
+                          <span className="text-sm font-medium dark:text-white">{item.quantity || 0}</span>
                           <Button
                             variant="outline"
                             size="sm"
@@ -128,13 +128,13 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
             <div className="border-t dark:border-gray-700 p-4 space-y-4">
               <div className="flex justify-between items-center">
                 <span className="font-bold dark:text-white">Total:</span>
-                <span className="font-bold text-lg dark:text-white">${total.toLocaleString()}</span>
+                <span className="font-bold text-lg dark:text-white">${(total || 0).toLocaleString()}</span>
               </div>
               <Button 
                 className="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 ease-in-out"
                 onClick={handleCheckout}
               >
-                FINALIZAR COMPRA POR WHATSAPP
+                CONTINUAR COMPRA (WHATSAPP)
               </Button>
               <Button
                 variant="outline"

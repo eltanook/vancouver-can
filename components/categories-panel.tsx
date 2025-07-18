@@ -148,13 +148,13 @@ function CategoriesPanelContent({ isOpen, onClose }: CategoriesPanelProps) {
               className="flex items-center space-x-2 p-2 dark:text-white dark:hover:bg-gray-800"
             >
               <span className="text-sm font-medium">
-                ${cartTotal > 999999 ? `${Math.floor(cartTotal / 1000)}k` : cartTotal.toLocaleString()}
+                ${(cartTotal || 0) > 999999 ? `${Math.floor((cartTotal || 0) / 1000)}k` : (cartTotal || 0).toLocaleString()}
               </span>
               <div className="relative">
                 <ShoppingCart className="h-4 w-4" />
-                {cartItemsCount > 0 && (
+                {(cartItemsCount || 0) > 0 && (
                   <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-                    {cartItemsCount > 9 ? "9+" : cartItemsCount}
+                    {(cartItemsCount || 0) > 9 ? "9+" : (cartItemsCount || 0)}
                   </span>
                 )}
               </div>
