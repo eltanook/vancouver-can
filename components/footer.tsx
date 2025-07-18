@@ -100,7 +100,7 @@ function FooterContent() {
               <div className="space-y-2 text-sm text-gray-300">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>+54 9 11 6029-4510</span>
+                  <span>+54 9 11 1328-1586</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="h-4 w-4" />

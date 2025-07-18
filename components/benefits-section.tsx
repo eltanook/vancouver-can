@@ -15,7 +15,7 @@ export default function BenefitsSection() {
     {
       icon: <MessageCircle className="h-8 w-8 text-black dark:text-white" />,
       title: "¿Necesitás ayuda?",
-      description: "Te asesoramos con tu compra, escribinos a +54 9 11 6029-4510",
+      description: "Te asesoramos con tu compra, escribinos a +54 9 11 1328-1586",
     },
   ]
 

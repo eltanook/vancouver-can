@@ -108,7 +108,7 @@ export default function PreguntasFrecuentes() {
                 Contactanos
               </a>
               <a 
-                href="https://wa.me/5491160294510" 
+                href="https://wa.me/5491113281586" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-transparent border border-black text-black dark:border-white dark:text-white px-8 py-3 rounded-lg transition-colors hover:text-[#fbb03b]"

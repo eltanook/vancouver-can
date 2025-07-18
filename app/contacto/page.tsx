@@ -31,7 +31,7 @@ export default function Contacto() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold dark:text-white">Teléfono</h3>
-                  <p className="text-gray-600 dark:text-white mt-1">+54 9 11 6029-4510</p>
+                  <p className="text-gray-600 dark:text-white mt-1">+54 9 11 1328-1586</p>
                 </div>
               </div>
 
