@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { X, ChevronDown, ChevronUp, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useStore } from "@/lib/store"
@@ -12,7 +12,7 @@ interface CategoriesPanelProps {
   onClose: () => void
 }
 
-export default function CategoriesPanel({ isOpen, onClose }: CategoriesPanelProps) {
+function CategoriesPanelContent({ isOpen, onClose }: CategoriesPanelProps) {
   const { getCartTotal, getCartItemsCount } = useStore()
   const router = useRouter()
   const pathname = usePathname()
@@ -163,5 +163,34 @@ export default function CategoriesPanel({ isOpen, onClose }: CategoriesPanelProp
         </div>
       </div>
     </div>
+  )
+}
+
+export default function CategoriesPanel({ isOpen, onClose }: CategoriesPanelProps) {
+  if (!isOpen) return null
+
+  return (
+    <Suspense fallback={
+      <div
+        className={`fixed inset-y-0 left-0 z-50 w-full sm:w-96 bg-white dark:bg-gray-900 transform transition-transform duration-300 ease-in-out ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+        >
+        <div className="h-full flex flex-col">
+          <div className="flex items-center justify-between p-4 border-b dark:border-gray-700">
+            <img 
+              src="/logo.png" 
+              alt="Vancouver Canning" 
+              className="h-8 w-auto logo-filter"
+            />
+            <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
+              <X className="h-6 w-6 dark:text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
+    }>
+      <CategoriesPanelContent isOpen={isOpen} onClose={onClose} />
+    </Suspense>
   )
 }

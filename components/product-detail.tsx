@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,7 +13,7 @@ interface ProductDetailProps {
   slug: string
 }
 
-export default function ProductDetail({ slug }: ProductDetailProps) {
+function ProductDetailContent({ slug }: ProductDetailProps) {
   const { addToCart, products } = useStore()
   const { showToast, ToastContainer } = useToast()
   const router = useRouter()
@@ -248,22 +248,30 @@ export default function ProductDetail({ slug }: ProductDetailProps) {
     { icon: <Shield className="h-4 w-4" />, text: "NO USAR LEJÍA / BLANQUEADOR" },
     { icon: <Thermometer className="h-4 w-4" />, text: "PLANCHAR MÁXIMO 110°C" },
     { icon: <Wind className="h-4 w-4" />, text: "SE PUEDE USAR SECADORA TEMPERATURA REDUCIDA" },
-    { icon: <RotateCcw className="h-4 w-4" />, text: "LAVAR AL REVÉS" },
-    { icon: <Shirt className="h-4 w-4" />, text: "LAVAR POR SEPARADO" },
-    { icon: <Droplets className="h-4 w-4" />, text: "LIMPIEZA EN SECO TETRACLOROETILENO" },
+    { icon: <RotateCcw className="h-4 w-4" />, text: "NO LAVAR EN SECO" },
+    { icon: <Shirt className="h-4 w-4" />, text: "NO USAR PLANCHA DE VAPOR" },
+    { icon: <Droplets className="h-4 w-4" />, text: "NO USAR DETERGENTES CON ENZIMAS" },
   ]
 
   const toggleSection = (section: string) => {
-    setExpandedSections((prev) => (prev.includes(section) ? prev.filter((s) => s !== section) : [...prev, section]))
+    setExpandedSections(prev => 
+      prev.includes(section) 
+        ? prev.filter(s => s !== section)
+        : [...prev, section]
+    )
   }
 
   const handleAddToCart = () => {
-    if (product.sizes && product.sizes.length > 0 && !selectedSize) {
-      showToast("Por favor selecciona un talle", "error")
-      return
-    }
-    
-    addToCart(product, quantity, selectedColor, selectedSize)
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      size: selectedSize,
+      color: selectedColor,
+      quantity: quantity,
+      slug: product.slug
+    })
     showToast("Producto agregado al carrito", "success")
   }
 
@@ -652,5 +660,13 @@ export default function ProductDetail({ slug }: ProductDetailProps) {
         )}
       </div>
     </>
+  )
+}
+
+export default function ProductDetail({ slug }: ProductDetailProps) {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <ProductDetailContent slug={slug} />
+    </Suspense>
   )
 }

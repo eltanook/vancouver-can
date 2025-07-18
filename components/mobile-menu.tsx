@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { X, User, ShoppingCart, ChevronRight } from "lucide-react"
@@ -12,7 +12,7 @@ interface MobileMenuProps {
   onClose: () => void
 }
 
-export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+function MobileMenuContent({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const { products } = useStore()
@@ -124,5 +124,30 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  if (!isOpen) return null
+
+  return (
+    <Suspense fallback={
+      <div className="fixed inset-0 z-50 bg-white">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between p-4 border-b">
+            <img 
+              src="/logo.png" 
+              alt="Vancouver Canning" 
+              className="h-8 w-auto logo-filter"
+            />
+            <Button variant="ghost" size="sm" onClick={onClose}>
+              <X className="h-6 w-6" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    }>
+      <MobileMenuContent isOpen={isOpen} onClose={onClose} />
+    </Suspense>
   )
 }
