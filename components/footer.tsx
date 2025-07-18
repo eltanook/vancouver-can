@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -8,7 +8,7 @@ import { Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
 import { useStore } from "@/lib/store"
 
-export default function Footer() {
+function FooterContent() {
   const [email, setEmail] = useState("")
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -153,5 +153,36 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  )
+}
+
+export default function Footer() {
+  return (
+    <Suspense fallback={
+      <footer className="bg-black text-white">
+        <div className="border-t border-gray-800">
+          <div className="container mx-auto px-4 py-12">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+              <div>
+                <div className="flex justify-center mb-8">
+                  <img 
+                    src="/logo.png" 
+                    alt="Vancouver Canning" 
+                    className="h-12 w-auto logo-original"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 py-6">
+          <div className="container mx-auto px-4 text-center text-sm text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Vancouver Canning. Todos los derechos reservados.</p>
+          </div>
+        </div>
+      </footer>
+    }>
+      <FooterContent />
+    </Suspense>
   )
 }

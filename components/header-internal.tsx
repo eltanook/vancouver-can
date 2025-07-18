@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { Menu, ShoppingCart, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -13,7 +13,7 @@ import PromoBanner from "./promo-banner"
 import MobileMenu from "./mobile-menu"
 import ThemeToggle from "@/components/ui/theme-toggle-wrapper"
 
-export default function HeaderInternal() {
+function HeaderInternalContent() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false)
   const [isCartOpen, setIsCartOpen] = useState(false)
@@ -180,6 +180,30 @@ export default function HeaderInternal() {
       <CartPanel isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
+  )
+}
+
+export default function HeaderInternal() {
+  return (
+    <Suspense fallback={
+      <header className="bg-white dark:bg-[#1f2937] border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            <div className="flex-1 flex justify-center md:justify-start">
+              <div className="md:ml-8">
+                <img 
+                  src="/logo.png" 
+                  alt="Vancouver Canning" 
+                  className="h-8 sm:h-10 w-auto logo-filter"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    }>
+      <HeaderInternalContent />
+    </Suspense>
   )
 }
 

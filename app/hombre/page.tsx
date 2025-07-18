@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import HeaderInternal from "@/components/header-internal"
 import CatalogHero from "@/components/catalog-hero"
@@ -10,7 +10,7 @@ import CatalogGrid from "@/components/catalog-grid"
 import FilterPanel from "@/components/filter-panel"
 import Footer from "@/components/footer"
 
-export default function HombrePage() {
+function HombrePageContent() {
   const searchParams = useSearchParams()
   const category = searchParams.get("category")
 
@@ -50,5 +50,21 @@ export default function HombrePage() {
       />
       <Footer />
     </div>
+  )
+}
+
+export default function HombrePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <HeaderInternal />
+        <CatalogHero />
+        <BenefitsSection />
+        <CategoriesSection gender="hombre" />
+        <Footer />
+      </div>
+    }>
+      <HombrePageContent />
+    </Suspense>
   )
 }

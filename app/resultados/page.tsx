@@ -1,7 +1,7 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
-import { useState } from "react"
+import { useState, Suspense } from "react"
 import HeaderInternal from "@/components/header-internal"
 import CatalogGrid from "@/components/catalog-grid"
 import FilterPanel from "@/components/filter-panel"
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-export default function ResultadosPage() {
+function ResultadosPageContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const gender = searchParams.get("gender") || undefined
@@ -48,5 +48,24 @@ export default function ResultadosPage() {
 
       <Footer />
     </div>
+  )
+}
+
+export default function ResultadosPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-white dark:bg-gray-900">
+        <HeaderInternal />
+        <div className="container mx-auto px-4 py-6 sm:py-8">
+          <Button variant="outline" size="sm" className="flex items-center gap-2 mb-4 dark:border-gray-600 dark:hover:bg-gray-800">
+            <ArrowLeft className="h-4 w-4" />
+            Volver
+          </Button>
+        </div>
+        <Footer />
+      </div>
+    }>
+      <ResultadosPageContent />
+    </Suspense>
   )
 } 
