@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: theme('colors.border');
+  }
+  
+  body {
+    color: theme('colors.foreground');
+    background: theme('colors.background');
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .h1 {
+    scroll-margin-top: 6rem;
+  }
+  
+  .h2 {
+    scroll-margin-top: 6rem;
+  }
+  
+  .h3 {
+    scroll-margin-top: 6rem;
+  }
+  
+  .h4 {
+    scroll-margin-top: 6rem;
+  }
+  
+  .h5 {
+    scroll-margin-top: 6rem;
+  }
+  
+  .h6 {
+    scroll-margin-top: 6rem;
+  }
+  
+  .prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"] *)) {
+    scroll-margin-top: 6rem;
+  }
+  
+  .prose :where(h1):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h2):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h3):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h4):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h5):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h6):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(p):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(ol):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(ul):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(li):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(hr):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h1 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h2 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h3 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h4 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h5 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(h6 + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(hr + *):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(table th):not(:where([class~="not-prose"] *)) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .prose :where(table td):not(:where([class~="not-prose"] *)) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .prose :where(blockquote > :first-child):not(:where([class~="not-prose"] *)) {
+    margin-top: 0;
+  }
+  
+  .prose :where(blockquote > :last-child):not(:where([class~="not-prose"] *)) {
+    margin-bottom: 0;
+  }
+  
+  .prose :where(code):not(:where([class~="not-prose"] *)) {
+    font-weight: 600;
+    font-variant-ligatures: none;
+  }
+  
+  .prose :where(a code):not(:where([class~="not-prose"] *)) {
+    color: inherit;
+  }
+  
+  .prose :where(hr):not(:where([class~="not-prose"] *)) {
+    border-color: theme('colors.border');
+    border-top-width: 1px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  .prose :where(thead th):not(:where([class~="not-prose"] *)) {
+    border-bottom-width: 1px;
+    border-bottom-color: theme('colors.border');
+  }
+  
+  .prose :where(tbody tr):not(:where([class~="not-prose"] *)) {
+    border-bottom-width: 1px;
+    border-bottom-color: theme('colors.border');
+  }
+  
+  .prose :where(tbody tr:last-child):not(:where([class~="not-prose"] *)) {
+    border-bottom-width: 0;
+  }
+  
+  .prose :where(tbody td):not(:where([class~="not-prose"] *)) {
+    vertical-align: baseline;
+  }
+  
+  .typography-accent {
+    font-family: var(--e-global-typography-accent-font-family);
+    font-size: var(--e-global-typography-accent-font-size);
+    font-weight: var(--e-global-typography-accent-font-weight);
+    line-height: var(--e-global-typography-accent-line-height);
+    text-decoration: var(--e-global-typography-accent-text-decoration);
+  }
+}
+
+/* Custom Vancouver branding styles */
+.vancouver-logo {
+  font-family: var(--e-global-typography-primary-font-family);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+/* Logo filter - solo invierte en modo claro */
+.logo-filter {
+  filter: invert(1);
+}
+
+/* En modo oscuro, el logo NO se invierte */
+.dark .logo-filter {
+  filter: none;
+}
+
+/* Logo original (no filter) para footer */
+.logo-original {
+  filter: none;
+}
+
+/* Hover color for links */
+a:hover,
+.hover-yellow:hover {
+  color: var(--vancouver-yellow) !important;
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+.transition-all,
+.group {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover * {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Remove border radius from all elements */
+* {
+  border-radius: 0 !important;
+}
+
+/* CUSTOM WEBKIT SCROLLBARS - MODO CLARO Y OSCURO */
+
+/* Scrollbar global para toda la página */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Scrollbar track - modo claro */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Scrollbar thumb - modo claro */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Scrollbar esquinas */
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+/* Scrollbar horizontal */
+::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+/* MODO OSCURO - Scrollbars */
+.dark ::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 0;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.dark ::-webkit-scrollbar-corner {
+  background: #374151;
+}
+
+/* Scrollbar para elementos específicos con overflow-y-auto */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Modo oscuro para overflow-y-auto */
+.dark .overflow-y-auto::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 0;
+}
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Scrollbar personalizado para elementos con clase scrollbar-thin */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Modo oscuro para scrollbar-thin */
+.dark .scrollbar-thin::-webkit-scrollbar-track {
+  background: #374151;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 0;
+}
+
+.dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Keyframes for scroll animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+
+.animate-scroll-slow {
+  animation: scroll 90s linear infinite;
+}
+
+/* Custom styling for cart counter */
+.cart-counter {
+  background: #f59e0b;
+  color: white;
+}
