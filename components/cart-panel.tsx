@@ -30,7 +30,7 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
     const encodedMessage = encodeURIComponent(message)
     
     // Abrir WhatsApp en una nueva pestaña
-    window.open(`https://wa.me/5491113281586?text=${encodedMessage}`, '_blank')
+    window.open(`https://wa.me/5491132815864?text=${encodedMessage}`, '_blank')
   }
 
   return (
