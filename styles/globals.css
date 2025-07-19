@@ -93,18 +93,19 @@ body {
   }
 }
 
-/* Animación de scroll infinito */
+/* Animación de scroll infinito mejorada */
 @keyframes scroll-infinite {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
 .animate-scroll-infinite {
-  animation: scroll-infinite 150s linear infinite;
+  animation: scroll-infinite 120s linear infinite;
+  will-change: transform;
 }
 
 .animate-scroll-infinite:hover {

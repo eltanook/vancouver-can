@@ -43,7 +43,8 @@ export default function Contacto() {
                 <div>
                   <h3 className="text-xl font-semibold dark:text-white">Dirección</h3>
                   <p className="text-gray-600 dark:text-white mt-1">
-                    Mariano Castex 1277<br />
+                    Mariano Castex 1257 / 77<br />
+                    Local 117 Shopping Plaza Canning<br />
                     Canning, Buenos Aires
                   </p>
                 </div>
@@ -56,8 +57,8 @@ export default function Contacto() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold dark:text-white">Horarios</h3>
-                  <p className="text-gray-600 dark:text-white mt-1">Lunes a Viernes: 9:00 a 18:00</p>
-                  <p className="text-gray-600 dark:text-white">Sábados: 9:00 a 13:00</p>
+                  <p className="text-gray-600 dark:text-white mt-1">Lunes a Sábado: 10:00 a 20:00</p>
+                  <p className="text-gray-600 dark:text-white">Domingos y Feriados: 12:00 a 20:00</p>
                 </div>
               </div>
 
@@ -147,7 +148,7 @@ export default function Contacto() {
         {/* Map Section */}
         <div className="h-[400px] w-full">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.9661056373766!2d-58.50847492345274!3d-34.85843617185106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd7e5bfdb0d3d%3A0x4e69e6e947cd5bc5!2sMariano%20Castex%201277%2C%20B1804EXY%20Canning%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1711396824630!5m2!1ses-419!2sar"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.9661056373766!2d-58.50847492345274!3d-34.85843617185106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcd7e5bfdb0d3d%3A0x4e69e6e947cd5bc5!2sMariano%20Castex%201257%2C%20B1804EXY%20Canning%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1711396824630!5m2!1ses-419!2sar"
             width="100%"
             height="100%"
             style={{ border: 0 }}

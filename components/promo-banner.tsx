@@ -2,9 +2,7 @@
 
 export default function PromoBanner() {
   const promos = [
-    "ENVÍOS GRATIS A COMPRAS MAYORES DE $120.000",
     "1 O 3 CUOTAS SIN INTERÉS CON TODAS LAS TARJETAS",
-    "HASTA 12 CUOTAS SIN INTERÉS CON MERCADO PAGO",
     "CAMBIOS Y DEVOLUCIONES SIN CARGO HASTA 30 DÍAS",
     "COMPRÁ AHORA Y PAGÁ EN 3 CUOTAS SIN INTERÉS",
     "PAGÁ EN EFECTIVO Y OBTENÉ 25% DE DESCUENTO",
@@ -45,6 +43,17 @@ export default function PromoBanner() {
             {promos.map((promo, index) => (
               <span
                 key={`third-${index}`}
+                className="inline-block flex-shrink-0 text-[11px] sm:text-xs font-medium tracking-wide"
+              >
+                {promo}
+              </span>
+            ))}
+          </div>
+          {/* Cuarta copia para garantizar transición perfecta */}
+          <div className="flex space-x-48 items-center ml-48 min-w-max">
+            {promos.map((promo, index) => (
+              <span
+                key={`fourth-${index}`}
                 className="inline-block flex-shrink-0 text-[11px] sm:text-xs font-medium tracking-wide"
               >
                 {promo}

@@ -514,8 +514,8 @@ const products: Product[] = [
   {
     "id": 10,
     "name": "CAMPERA PARKA",
-    "price": 169,
-    "cashPrice": 130,
+    "price": 169000,
+    "cashPrice": 130000,
     "image": "/Productos/366V.jpg",
     "hoverImage": "/Productos/366V (1).jpg",
     "slug": "campera-parka",
@@ -626,8 +626,8 @@ const products: Product[] = [
     "image": "/Productos/1025057.png",
     "hoverImage": "/Productos/1025057 (1).png",
     "slug": "jean-sant",
-    "category": "jeans",
-    "subcategory": "basic",
+    "category": "pantalones",
+    "subcategory": "jeans",
     "gender": "hombre",
     "season": "primavera",
     "colors": [
@@ -1029,8 +1029,8 @@ const products: Product[] = [
     "image": "/Productos/1025114.png",
     "hoverImage": "/Productos/1025114 (1).png",
     "slug": "jean-round",
-    "category": "jeans",
-    "subcategory": "basic",
+    "category": "pantalones",
+    "subcategory": "jeans",
     "gender": "hombre",
     "season": "primavera",
     "colors": [
@@ -1255,8 +1255,8 @@ const products: Product[] = [
     "image": "/Productos/1025064.png",
     "hoverImage": "/Productos/1025064 (1).png",
     "slug": "jean-kofel",
-    "category": "jeans",
-    "subcategory": "basic",
+    "category": "pantalones",
+    "subcategory": "jeans",
     "gender": "hombre",
     "season": "primavera",
     "colors": [
@@ -1470,7 +1470,7 @@ const products: Product[] = [
     "id": 32,
     "name": "CARGO EIGER",
     "price": 84500,
-    "cashPrice": 65,
+    "cashPrice": 65000,
     "image": "/Productos/1025028F.png",
     "hoverImage": "/Productos/1025028F (1).png",
     "slug": "cargo-eiger",
@@ -1538,8 +1538,8 @@ const products: Product[] = [
     "image": "/Productos/1001031F.png",
     "hoverImage": "/Productos/1001031F (1).png",
     "slug": "jean-dowel",
-    "category": "jeans",
-    "subcategory": "basic",
+    "category": "pantalones",
+    "subcategory": "jeans",
     "gender": "mujer",
     "season": "primavera",
     "colors": [
@@ -1584,8 +1584,8 @@ const products: Product[] = [
     "image": "/Productos/1001026F.png",
     "hoverImage": "/Productos/1001026F (1).png",
     "slug": "jean-rimo",
-    "category": "jeans",
-    "subcategory": "basic",
+    "category": "pantalones",
+    "subcategory": "jeans",
     "gender": "mujer",
     "season": "primavera",
     "colors": [
@@ -1630,8 +1630,8 @@ const products: Product[] = [
     "image": "/Productos/1001011F.png",
     "hoverImage": "/Productos/1001011F (1).png",
     "slug": "jean-salk",
-    "category": "jeans",
-    "subcategory": "basic",
+    "category": "pantalones",
+    "subcategory": "jeans",
     "gender": "mujer",
     "season": "primavera",
     "colors": [
@@ -1710,6 +1710,278 @@ const products: Product[] = [
     ],
     "isReal": true,
     "productCode": "558B"
+  },
+  // Productos duplicados para categoría joggers (hombre)
+  {
+    "id": 37,
+    "name": "JOGGING MERON",
+    "price": 70700,
+    "cashPrice": 54400,
+    "image": "/Productos/1025119.png",
+    "hoverImage": "/Productos/1025119 (1).png",
+    "slug": "jogging-meron-joggers",
+    "category": "joggers",
+    "subcategory": "jogging",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Beige",
+        "color": "beige",
+        "hex": "#D2B48C"
+      },
+      {
+        "name": "Negro",
+        "color": "negro",
+        "hex": "#000000"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Jogging de frisa con botamanga regulable",
+    "inStock": true,
+    "images": [
+      "/Productos/1025119.png",
+      "/Productos/1025119 (1).png",
+      "/Productos/1025119 (2).png",
+      "/Productos/1025119 (3).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Beige",
+          "color": "beige",
+          "hex": "#D2B48C"
+        },
+        "images": [
+          "/Productos/1025119.png",
+          "/Productos/1025119 (1).png"
+        ]
+      },
+      {
+        "color": {
+          "name": "Negro",
+          "color": "negro",
+          "hex": "#000000"
+        },
+        "images": [
+          "/Productos/1025119 (2).png",
+          "/Productos/1025119 (3).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1025119"
+  },
+  {
+    "id": 38,
+    "name": "CARGO CABOX",
+    "price": 108100,
+    "cashPrice": 83200,
+    "image": "/Productos/1025132.jpg",
+    "hoverImage": "/Productos/1025132.jpg",
+    "slug": "cargo-cabox-joggers",
+    "category": "joggers",
+    "subcategory": "cargo",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Blanco",
+        "color": "blanco",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "sizes": [
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "description": "cargo con cintura elastizada  de microfibra",
+    "inStock": true,
+    "images": [
+      "/Productos/1025132.jpg"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Blanco",
+          "color": "blanco",
+          "hex": "#FFFFFF"
+        },
+        "images": [
+          "/Productos/1025132.jpg"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1025132"
+  },
+  {
+    "id": 39,
+    "name": "CARGO ROBSON",
+    "price": 108100,
+    "cashPrice": 83200,
+    "image": "/Productos/1025131.jpg",
+    "hoverImage": "/Productos/1025131 (1).jpg",
+    "slug": "cargo-robson-joggers",
+    "category": "joggers",
+    "subcategory": "cargo",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Negro",
+        "color": "negro",
+        "hex": "#000000"
+      }
+    ],
+    "sizes": [
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "description": "cargo con cintura elastizada  de microfibra",
+    "inStock": true,
+    "images": [
+      "/Productos/1025131.jpg",
+      "/Productos/1025131 (1).jpg"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Negro",
+          "color": "negro",
+          "hex": "#000000"
+        },
+        "images": [
+          "/Productos/1025131.jpg",
+          "/Productos/1025131 (1).jpg"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1025131"
+  },
+  {
+    "id": 40,
+    "name": "PANTALON CARGO",
+    "price": 108100,
+    "cashPrice": 83200,
+    "image": "/Productos/P02.jpg",
+    "hoverImage": "/Productos/P02.png",
+    "slug": "pantalon-cargo-joggers",
+    "category": "joggers",
+    "subcategory": "cargo",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Gris",
+        "color": "gris",
+        "hex": "#808080"
+      }
+    ],
+    "sizes": [
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "description": "Cargo de gabardina con multiples bolsillos",
+    "inStock": true,
+    "images": [
+      "/Productos/P02.jpg",
+      "/Productos/P02.png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Gris",
+          "color": "gris",
+          "hex": "#808080"
+        },
+        "images": [
+          "/Productos/P02.jpg",
+          "/Productos/P02.png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "P02"
+  },
+  // Productos duplicados para categoría joggers (mujer)
+  {
+    "id": 41,
+    "name": "CARGO EIGER",
+    "price": 84500,
+    "cashPrice": 65000,
+    "image": "/Productos/1025028F.png",
+    "hoverImage": "/Productos/1025028F (1).png",
+    "slug": "cargo-eiger-joggers",
+    "category": "joggers",
+    "subcategory": "cargo",
+    "gender": "mujer",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Beige",
+        "color": "beige",
+        "hex": "#D2B48C"
+      },
+      {
+        "name": "Negro",
+        "color": "negro",
+        "hex": "#000000"
+      }
+    ],
+    "sizes": [
+      "38",
+      "40",
+      "42"
+    ],
+    "description": "Pantalon de gabardina, modelo tipo cargo",
+    "inStock": true,
+    "images": [
+      "/Productos/1025028F.png",
+      "/Productos/1025028F (1).png",
+      "/Productos/1025028F (2).png",
+      "/Productos/1025028F (3).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Beige",
+          "color": "beige",
+          "hex": "#D2B48C"
+        },
+        "images": [
+          "/Productos/1025028F.png",
+          "/Productos/1025028F (1).png"
+        ]
+      },
+      {
+        "color": {
+          "name": "Negro",
+          "color": "negro",
+          "hex": "#000000"
+        },
+        "images": [
+          "/Productos/1025028F (2).png",
+          "/Productos/1025028F (3).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1025028F"
   }
 ]
 

@@ -52,10 +52,10 @@ export default function ComoComprar() {
                 3
               </div>
 
-              <h3 className="text-xl font-semibold mb-3 dark:text-white">Elegí cómo pagar</h3>
+              <h3 className="text-xl font-semibold mb-3 dark:text-white">Finalizá tu compra por WhatsApp</h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Aceptamos todos los medios de pago: tarjetas, transferencia, Mercado Pago y efectivo.
-                ¡Hasta 1 o 3 cuotas sin interés!
+                Una vez que tengas todo en tu carrito, hacé clic en "CONTINUAR COMPRA" y se abrirá WhatsApp
+                con tu pedido listo. Confirmá los detalles y elegí tu método de pago.
               </p>
             </div>
 
@@ -68,7 +68,7 @@ export default function ComoComprar() {
               <h3 className="text-xl font-semibold mb-3 dark:text-white">Recibí tu compra</h3>
               <p className="text-gray-600 dark:text-gray-300">
                 Elegí el método de envío que prefieras. Hacemos envíos a todo el país
-                y podés hacer seguimiento de tu pedido.
+                y coordinamos la entrega contigo.
               </p>
             </div>
           </div>
@@ -85,18 +85,6 @@ export default function ComoComprar() {
                   <p className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-black dark:bg-white rounded-full"></span>
                     <span>AMBA: 24-48hs hábiles</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-black dark:bg-white rounded-full"></span>
-                    <span>Interior: 3-7 días hábiles</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-black dark:bg-white rounded-full"></span>
-                    <span>Envío gratis en compras mayores a $50.000</span>
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-black dark:bg-white rounded-full"></span>
-                    <span>Seguimiento online de tu pedido</span>
                   </p>
                 </div>
               </div>
