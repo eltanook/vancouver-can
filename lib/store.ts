@@ -12,8 +12,8 @@ interface ColorImageAssociation {
 export interface Product {
   id: number
   name: string
-  price: number // Precio de lista (hasta 3 cuotas sin interés)
-  cashPrice: number // Precio en efectivo (con descuento)
+  price: number 
+  cashPrice?: number 
   image: string
   hoverImage: string
   slug: string
@@ -308,7 +308,7 @@ const rawProducts: Product[] = [
       }
     ],
     "isReal": true,
-    "productCode": "4025096BF"
+    "productCode": "7025087"
   },
   {
     "id": 5,
@@ -360,8 +360,8 @@ const rawProducts: Product[] = [
   {
     "id": 7,
     "name": "CAMPERA HUBBARD",
-    "price": 143000,
-    "cashPrice": 110000,
+    "price": 121000,
+    "cashPrice": 93600,
     "image": "/Productos/3025130.png",
     "hoverImage": "/Productos/3025130 (1).png",
     "slug": "campera-hubbard",
@@ -407,8 +407,8 @@ const rawProducts: Product[] = [
   {
     "id": 8,
     "name": "CAMPERA DE ABRIGO",
-    "price": 101000,
-    "cashPrice": 77800,
+    "price": 143000,
+    "cashPrice": 110000,
     "image": "/Productos/80016V.png",
     "hoverImage": "/Productos/80016V (1).png",
     "slug": "campera-de-abrigo",
@@ -453,8 +453,8 @@ const rawProducts: Product[] = [
   {
     "id": 9,
     "name": "CAMPERA BERT",
-    "price": 169000,
-    "cashPrice": 130000,
+    "price": 101000,
+    "cashPrice": 77800,
     "image": "/Productos/3025105.png",
     "hoverImage": "/Productos/3025105 (1).png",
     "slug": "campera-bert",
@@ -532,7 +532,7 @@ const rawProducts: Product[] = [
             "hex": "#000000"
       }
 ],
-    "sizes": ["M", "L"],
+    "sizes": ["L", "XL"],
     "description": "Campera tipo parka con capucha",
     "inStock": true,
     "images": [
@@ -835,8 +835,7 @@ const rawProducts: Product[] = [
   {
     "id": 20,
     "name": "BOXER",
-    "price": 54300,
-    "cashPrice": 41800,
+    "price": 18000,
     "image": "/Productos/94.png",
     "hoverImage": "/Productos/94.png",
     "slug": "boxer",
@@ -849,9 +848,14 @@ const rawProducts: Product[] = [
             "name": "Negro",
             "color": "negro",
             "hex": "#000000"
-      }
+      },
+      {
+            "name": "Blanco",
+            "color": "blanco",
+            "hex": "#FFFFFF"
+      },
 ],
-    "sizes": ["S", "M", "L", "XL"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
     "description": "Boxer de algodón cómodo y transpirable",
     "inStock": true,
     "images": [
@@ -870,7 +874,7 @@ const rawProducts: Product[] = [
       }
 ],
     "isReal": true,
-    "productCode": "558"
+    "productCode": "94"
   },
   {
     "id": 21,
@@ -931,9 +935,9 @@ const rawProducts: Product[] = [
         "hex": "#8B4513"
       },
       {
-        "name": "Blanco",
-        "color": "blanco",
-        "hex": "#FFFFFF"
+        "name": "Beige",
+        "color": "beige",
+        "hex": "#D2B48C"
       }
     ],
     "sizes": [
@@ -961,9 +965,9 @@ const rawProducts: Product[] = [
       },
       {
         "color": {
-          "name": "Blanco",
-          "color": "blanco",
-          "hex": "#FFFFFF"
+          "name": "Beige",
+          "color": "beige",
+          "hex": "#D2B48C"
         },
         "images": [
           "/Productos/4025098OV (2).png",
@@ -1407,8 +1411,8 @@ const rawProducts: Product[] = [
   {
     "id": 31,
     "name": "BUZO KAN",
-    "price": 84500,
-    "cashPrice": 65000,
+    "price": 70700,
+    "cashPrice": 54400,
     "image": "/Productos/4001035F.png",
     "hoverImage": "/Productos/4001035F (1).png",
     "slug": "buzo-kan",
