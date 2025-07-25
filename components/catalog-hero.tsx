@@ -45,7 +45,7 @@ export default function CatalogHero() {
   }, [])
 
   return (
-    <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden bg-gray-200 dark:bg-gray-800">
+    <div className="relative h-64 sm:h-80 md:h-96 lg:h-full overflow-hidden bg-gray-200 dark:bg-gray-800">
       {/* Video Background */}
       {!hasError && (
         <video
