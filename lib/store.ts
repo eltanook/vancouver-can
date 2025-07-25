@@ -1,3 +1,5 @@
+
+
 "use client"
 
 import { create } from "zustand"
@@ -52,7 +54,7 @@ interface StoreState {
     priceRange: [number, number]
   }
   paginationMemory: {
-    [key: string]: number // Key es el path de la página, value es el número de página
+    [key: string]: number
   }
   addToCart: (product: Product, quantity: number, color: string, size: string) => void
   removeFromCart: (productId: number, color: string, size: string) => void
@@ -70,8 +72,8 @@ interface StoreState {
   getProductsByCategory: (category: string, gender?: string) => Product[]
 }
 
-// Productos definitivos desde CSV - CORREGIDOS
-const products: Product[] = [
+// --- Lista original de productos (con duplicados) ---
+const rawProducts: Product[] = [
   {
     "id": 1,
     "name": "BUZO ZABA",
@@ -1985,6 +1987,12 @@ const products: Product[] = [
   }
 ]
 
+// --- Filtro para eliminar duplicados por productCode ---
+const products: Product[] = Array.from(
+  new Map(rawProducts.map(p => [p.productCode || p.id, p])).values()
+)
+
+// --- Store con Zustand ---
 export const useStore = create<StoreState>((set, get) => ({
   products,
   cartItems: [],
@@ -2000,7 +2008,6 @@ export const useStore = create<StoreState>((set, get) => ({
   paginationMemory: {},
 
   addToCart: (product, quantity, color, size) => {
-    // Validar que todos los parámetros sean válidos
     if (!product || !product.id) {
       console.error('Producto inválido para agregar al carrito')
       return

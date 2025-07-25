@@ -12,24 +12,25 @@ interface CartPanelProps {
 export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
   const { cartItems, updateQuantity, removeFromCart, getCartTotal, clearCart } = useStore()
 
-  const total = getCartTotal()
+  // Total usando cashPrice si existe
+  const total = cartItems.reduce((acc, item) => {
+    const unitPrice = item.product.cashPrice ?? item.product.price
+    return acc + unitPrice * item.quantity
+  }, 0)
 
   const handleCheckout = () => {
-    // Crear el mensaje para WhatsApp
     let message = "¡Hola! Me gustaría hacer el siguiente pedido:\n\n"
     cartItems.forEach((item) => {
+      const unitPrice = item.product.cashPrice ?? item.product.price
       message += `• ${item.product.name}\n`
       message += `  - Talle: ${item.selectedSize || 'No especificado'}\n`
       message += `  - Color: ${item.selectedColor || 'No especificado'}\n`
       message += `  - Cantidad: ${item.quantity || 0}\n`
-      message += `  - Precio unitario: $${(item.product.price || 0).toLocaleString()}\n\n`
+      message += `  - Precio unitario: $${unitPrice.toLocaleString()}\n\n`
     })
     message += `\nTotal: $${(total || 0).toLocaleString()}`
 
-    // Codificar el mensaje para la URL
     const encodedMessage = encodeURIComponent(message)
-    
-    // Abrir WhatsApp en una nueva pestaña
     window.open(`https://wa.me/5491132815864?text=${encodedMessage}`, '_blank')
   }
 
@@ -66,59 +67,104 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
               </div>
             ) : (
               <div className="space-y-4">
-                {cartItems.map((item, index) => (
-                  <div
-                    key={`${item.product.id}-${item.selectedColor}-${item.selectedSize}-${index}`}
-                    className="flex gap-4 p-4 border dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-md dark:hover:shadow-gray-800"
-                  >
-                    <img
-                      src={item.product.image || "/placeholder.svg"}
-                      alt={item.product.name}
-                      className="w-20 h-20 object-cover"
-                    />
-                    <div className="flex-1">
-                      <h3 className="font-medium text-sm dark:text-white">{item.product.name}</h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        Talle: {item.selectedSize} | Color: {item.selectedColor}
-                      </p>
-                      <p className="font-bold text-sm dark:text-white">${item.product.price.toLocaleString()}</p>
+                {cartItems.map((item, index) => {
+                  const hasDiscount =
+                    item.product.cashPrice && item.product.cashPrice < item.product.price
 
-                      <div className="flex items-center justify-between mt-2">
-                        <div className="flex items-center gap-2">
+                  // Calcular porcentaje de descuento
+                  const discountPercent = hasDiscount
+                    ? Math.round(
+                        ((item.product.price - (item.product.cashPrice ?? 0)) / item.product.price) * 100
+                      )
+                    : 0
+
+                  return (
+                    <div
+                      key={`${item.product.id}-${item.selectedColor}-${item.selectedSize}-${index}`}
+                      className="flex gap-4 p-4 border dark:border-gray-700 transition-all duration-300 ease-in-out hover:shadow-md dark:hover:shadow-gray-800"
+                    >
+                      <img
+                        src={item.product.image || "/placeholder.svg"}
+                        alt={item.product.name}
+                        className="w-20 h-20 object-cover"
+                      />
+                      <div className="flex-1">
+                        <h3 className="font-medium text-sm dark:text-white">{item.product.name}</h3>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">
+                          Talle: {item.selectedSize} | Color: {item.selectedColor}
+                        </p>
+
+                        {/* Precios con descuento o normal */}
+                        <div className="mt-1 flex items-center gap-2">
+                          {hasDiscount ? (
+                            <>
+                              <div className="flex flex-col">
+                                <p className="text-gray-500 dark:text-gray-400 line-through text-xs">
+                                  ${item.product.price.toLocaleString()}
+                                </p>
+                                <p className="font-bold text-sm dark:text-white">
+                                  ${item.product.cashPrice?.toLocaleString()}
+                                </p>
+                              </div>
+                              <span className="bg-[#f59e0b] text-white text-xs font-semibold px-2 py-1 rounded">
+                                -{discountPercent}%
+                              </span>
+                            </>
+                          ) : (
+                            <p className="font-bold text-sm dark:text-white">
+                              ${item.product.price.toLocaleString()}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Controles de cantidad */}
+                        <div className="flex items-center justify-between mt-2">
+                          <div className="flex items-center gap-2">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() =>
+                                updateQuantity(
+                                  item.product.id,
+                                  item.selectedColor,
+                                  item.selectedSize,
+                                  item.quantity - 1
+                                )
+                              }
+                              className="transition-all duration-200 ease-in-out dark:border-gray-700 dark:text-white"
+                            >
+                              <Minus className="h-3 w-3" />
+                            </Button>
+                            <span className="text-sm font-medium dark:text-white">{item.quantity || 0}</span>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() =>
+                                updateQuantity(
+                                  item.product.id,
+                                  item.selectedColor,
+                                  item.selectedSize,
+                                  item.quantity + 1
+                                )
+                              }
+                              className="transition-all duration-200 ease-in-out dark:border-gray-700 dark:text-white"
+                            >
+                              <Plus className="h-3 w-3" />
+                            </Button>
+                          </div>
                           <Button
-                            variant="outline"
+                            variant="ghost"
                             size="sm"
-                            onClick={() =>
-                              updateQuantity(item.product.id, item.selectedColor, item.selectedSize, item.quantity - 1)
-                            }
-                            className="transition-all duration-200 ease-in-out dark:border-gray-700 dark:text-white"
+                            onClick={() => removeFromCart(item.product.id, item.selectedColor, item.selectedSize)}
+                            className="transition-all duration-200 ease-in-out hover:text-red-500 dark:text-white"
                           >
-                            <Minus className="h-3 w-3" />
-                          </Button>
-                          <span className="text-sm font-medium dark:text-white">{item.quantity || 0}</span>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() =>
-                              updateQuantity(item.product.id, item.selectedColor, item.selectedSize, item.quantity + 1)
-                            }
-                            className="transition-all duration-200 ease-in-out dark:border-gray-700 dark:text-white"
-                          >
-                            <Plus className="h-3 w-3" />
+                            <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => removeFromCart(item.product.id, item.selectedColor, item.selectedSize)}
-                          className="transition-all duration-200 ease-in-out hover:text-red-500 dark:text-white"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             )}
           </div>
@@ -130,7 +176,7 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
                 <span className="font-bold dark:text-white">Total:</span>
                 <span className="font-bold text-lg dark:text-white">${(total || 0).toLocaleString()}</span>
               </div>
-              <Button 
+              <Button
                 className="w-full bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 ease-in-out"
                 onClick={handleCheckout}
               >
