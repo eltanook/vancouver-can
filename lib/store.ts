@@ -835,7 +835,7 @@ const rawProducts: Product[] = [
   {
     "id": 20,
     "name": "BOXER",
-    "price": 18000,
+    "price": 18800,
     "image": "/Productos/94.png",
     "hoverImage": "/Productos/94.png",
     "slug": "boxer",
