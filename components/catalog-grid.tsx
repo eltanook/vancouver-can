@@ -222,11 +222,19 @@ export default function CatalogGrid({ onFilterClick, filters, gender, category, 
                 </div>
                 <h3 className="font-medium text-xs sm:text-sm mb-1 uppercase line-clamp-2 dark:text-white">{product.name}</h3>
                 <div className="flex items-baseline gap-3">
-                  <p className="typography-accent font-bold text-sm sm:text-base dark:text-white">${product.price?.toLocaleString() || '0'}</p>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
-                    Descuento efectivo: <span className="font-bold text-gray-900 dark:text-white">${product.cashPrice?.toLocaleString() || Math.floor(product.price * 0.75).toLocaleString()}</span>
-                  </p>
-                </div>
+  <p className="typography-accent font-bold text-sm sm:text-base dark:text-white">
+    ${product.price?.toLocaleString() || '0'}
+  </p>
+  {product.cashPrice && (
+    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300">
+      Descuento efectivo:{" "}
+      <span className="font-bold text-gray-900 dark:text-white">
+        ${product.cashPrice.toLocaleString()}
+      </span>
+    </p>
+  )}
+</div>
+
               </div>
             </Link>
           ))}

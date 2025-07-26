@@ -12,21 +12,21 @@ interface CartPanelProps {
 export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
   const { cartItems, updateQuantity, removeFromCart, getCartTotal, clearCart } = useStore()
 
-  // Total usando cashPrice si existe
-  const total = cartItems.reduce((acc, item) => {
-    const unitPrice = item.product.cashPrice ?? item.product.price
-    return acc + unitPrice * item.quantity
-  }, 0)
+  // Total basado en product.price
+  const total = cartItems.reduce((acc, item) => acc + item.product.price * item.quantity, 0)
 
   const handleCheckout = () => {
     let message = "¡Hola! Me gustaría hacer el siguiente pedido:\n\n"
     cartItems.forEach((item) => {
-      const unitPrice = item.product.cashPrice ?? item.product.price
       message += `• ${item.product.name}\n`
       message += `  - Talle: ${item.selectedSize || 'No especificado'}\n`
-      message += `  - Color: ${item.selectedColor || 'No especificado'}\n`
+
+      // Buscar el color por name si existe
+      const colorName = item.product.colors.find(c => c.color === item.selectedColor)?.name || item.selectedColor
+      message += `  - Color: ${colorName || 'No especificado'}\n`
+
       message += `  - Cantidad: ${item.quantity || 0}\n`
-      message += `  - Precio unitario: $${unitPrice.toLocaleString()}\n\n`
+      message += `  - Precio unitario: $${item.product.price.toLocaleString()}\n\n`
     })
     message += `\nTotal: $${(total || 0).toLocaleString()}`
 
@@ -68,15 +68,7 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
             ) : (
               <div className="space-y-4">
                 {cartItems.map((item, index) => {
-                  const hasDiscount =
-                    item.product.cashPrice && item.product.cashPrice < item.product.price
-
-                  // Calcular porcentaje de descuento
-                  const discountPercent = hasDiscount
-                    ? Math.round(
-                        ((item.product.price - (item.product.cashPrice ?? 0)) / item.product.price) * 100
-                      )
-                    : 0
+                  const colorName = item.product.colors.find(c => c.color === item.selectedColor)?.name || item.selectedColor
 
                   return (
                     <div
@@ -91,31 +83,20 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
                       <div className="flex-1">
                         <h3 className="font-medium text-sm dark:text-white">{item.product.name}</h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400">
-                          Talle: {item.selectedSize} | Color: {item.selectedColor}
+                          Talle: {item.selectedSize} | Color: {colorName}
                         </p>
 
-                        {/* Precios con descuento o normal */}
-                        <div className="mt-1 flex items-center gap-2">
-                          {hasDiscount ? (
-                            <>
-                              <div className="flex flex-col">
-                                <p className="text-gray-500 dark:text-gray-400 line-through text-xs">
-                                  ${item.product.price.toLocaleString()}
-                                </p>
-                                <p className="font-bold text-sm dark:text-white">
-                                  ${item.product.cashPrice?.toLocaleString()}
-                                </p>
-                              </div>
-                              <span className="bg-[#f59e0b] text-white text-xs font-semibold px-2 py-1 rounded">
-                                -{discountPercent}%
-                              </span>
-                            </>
-                          ) : (
-                            <p className="font-bold text-sm dark:text-white">
-                              ${item.product.price.toLocaleString()}
-                            </p>
-                          )}
-                        </div>
+                        {/* Mostrar cashPrice arriba, sin tachado */}
+                        {item.product.cashPrice && (
+                          <p className="text-sm">
+                            ${item.product.cashPrice.toLocaleString()} <span className="text-xs">en efectivo</span>
+                          </p>
+                        )}
+
+                        {/* Precio normal (más grande) */}
+                        <p className="font-bold text-[1.1rem] dark:text-white">
+                          ${item.product.price.toLocaleString()}
+                        </p>
 
                         {/* Controles de cantidad */}
                         <div className="flex items-center justify-between mt-2">
