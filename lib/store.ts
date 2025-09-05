@@ -148,7 +148,7 @@ const rawProducts: Product[] = [
     "category": "accesorios",
     "subcategory": "gorras",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
         "colors": [
       {
         "name": "Negro",
@@ -775,7 +775,7 @@ const rawProducts: Product[] = [
     "category": "accesorios",
     "subcategory": "perfumes",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [],
     "sizes": [],
     "description": "Perfumes de 100ml",
@@ -798,7 +798,7 @@ const rawProducts: Product[] = [
     "category": "accesorios",
     "subcategory": "cintos",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [
       {
         "name": "Negro",
@@ -842,7 +842,7 @@ const rawProducts: Product[] = [
     "category": "accesorios",
     "subcategory": "ropa-interior",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [
       {
             "name": "Negro",
@@ -887,7 +887,7 @@ const rawProducts: Product[] = [
     "category": "accesorios",
     "subcategory": "bolsos",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [
       {
         "name": "Verde",
@@ -1088,7 +1088,7 @@ const rawProducts: Product[] = [
     "category": "remeras",
     "subcategory": "basic",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [
       {
         "name": "Negro",
@@ -1152,7 +1152,7 @@ const rawProducts: Product[] = [
     "category": "remeras",
     "subcategory": "basic",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [
       {
         "name": "Negro",
@@ -1688,7 +1688,7 @@ const rawProducts: Product[] = [
     "category": "accesorios",
     "subcategory": "gorras",
     "gender": "hombre",
-    "season": "verano",
+    "season": "primavera",
     "colors": [
       {
         "name": "GRIS",
@@ -1988,6 +1988,310 @@ const rawProducts: Product[] = [
     ],
     "isReal": true,
     "productCode": "1025028F"
+  },
+  // Nuevos productos de septiembre
+  {
+    "id": 42,
+    "name": "Baggy Grou",
+    "price": 88600,
+    "cashPrice": 68200,
+    "image": "/Productos/1025080 baggy grou.png",
+    "hoverImage": "/Productos/1025080 baggy grou (1).png",
+    "slug": "baggy-grou",
+    "category": "pantalones",
+    "subcategory": "baggy",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Gris",
+        "color": "gris",
+        "hex": "#808080"
+      }
+    ],
+    "sizes": [
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "description": "Baggy con personalidad, fit holgado",
+    "inStock": true,
+    "images": [
+      "/Productos/1025080 baggy grou.png",
+      "/Productos/1025080 baggy grou (1).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Gris",
+          "color": "gris",
+          "hex": "#808080"
+        },
+        "images": [
+          "/Productos/1025080 baggy grou.png",
+          "/Productos/1025080 baggy grou (1).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1025080"
+  },
+  {
+    "id": 43,
+    "name": "Baggy Hold",
+    "price": 88600,
+    "cashPrice": 68200,
+    "image": "/Productos/1025112 baggy hold.png",
+    "hoverImage": "/Productos/1025112 baggy hold (1).png",
+    "slug": "baggy-hold",
+    "category": "pantalones",
+    "subcategory": "baggy",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Celeste",
+        "color": "celeste",
+        "hex": "#87CEEB"
+      }
+    ],
+    "sizes": [
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "description": "Libertad en cada paso, fit ancho",
+    "inStock": true,
+    "images": [
+      "/Productos/1025112 baggy hold.png",
+      "/Productos/1025112 baggy hold (1).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Celeste",
+          "color": "celeste",
+          "hex": "#87CEEB"
+        },
+        "images": [
+          "/Productos/1025112 baggy hold.png",
+          "/Productos/1025112 baggy hold (1).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1025112"
+  },
+  {
+    "id": 44,
+    "name": "Jogger Sicilia",
+    "price": 76200,
+    "cashPrice": 58600,
+    "image": "/Productos/1026013 jogger sicilia.png",
+    "hoverImage": "/Productos/1026013 jogger sicilia (1).png",
+    "slug": "jogger-sicilia",
+    "category": "pantalones",
+    "subcategory": "jogging",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Beige",
+        "color": "beige",
+        "hex": "#D2B48C"
+      }
+    ],
+    "sizes": [
+      "38",
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    "description": "Relax con actitud, un Jogger que se banca todo",
+    "inStock": true,
+    "images": [
+      "/Productos/1026013 jogger sicilia.png",
+      "/Productos/1026013 jogger sicilia (1).png",
+      "/Productos/1026013 jogger sicilia (2).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Beige",
+          "color": "beige",
+          "hex": "#D2B48C"
+        },
+        "images": [
+          "/Productos/1026013 jogger sicilia.png",
+          "/Productos/1026013 jogger sicilia (1).png",
+          "/Productos/1026013 jogger sicilia (2).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "1026013"
+  },
+  {
+    "id": 45,
+    "name": "Remera Koh",
+    "price": 41600,
+    "cashPrice": 32000,
+    "image": "/Productos/5026003R KOH.png",
+    "hoverImage": "/Productos/5026003R KOH.png",
+    "slug": "remera-koh",
+    "category": "remeras",
+    "subcategory": "basic",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Negro",
+        "color": "negro",
+        "hex": "#000000"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Estilo relajado, detalles de calidad",
+    "inStock": true,
+    "images": [
+      "/Productos/5026003R KOH.png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Negro",
+          "color": "negro",
+          "hex": "#000000"
+        },
+        "images": [
+          "/Productos/5026003R KOH.png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "5026003R"
+  },
+  {
+    "id": 46,
+    "name": "Remera Skye",
+    "price": 41600,
+    "cashPrice": 32000,
+    "image": "/Productos/5026005R SKYE.png",
+    "hoverImage": "/Productos/5026005R SKYE (1).png",
+    "slug": "remera-skye",
+    "category": "remeras",
+    "subcategory": "basic",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Beige",
+        "color": "beige",
+        "hex": "#D2B48C"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Esta remera parece simple, hasta que la das vuelta",
+    "inStock": true,
+    "images": [
+      "/Productos/5026005R SKYE.png",
+      "/Productos/5026005R SKYE (1).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Beige",
+          "color": "beige",
+          "hex": "#D2B48C"
+        },
+        "images": [
+          "/Productos/5026005R SKYE.png",
+          "/Productos/5026005R SKYE (1).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "5026005R"
+  },
+  {
+    "id": 47,
+    "name": "Remera Zanzi",
+    "price": 41600,
+    "cashPrice": 32000,
+    "image": "/Productos/5026006R ZANZI.png",
+    "hoverImage": "/Productos/5026006R ZANZI (1).png",
+    "slug": "remera-zanzi",
+    "category": "remeras",
+    "subcategory": "basic",
+    "gender": "hombre",
+    "season": "primavera",
+    "colors": [
+      {
+        "name": "Gris",
+        "color": "gris",
+        "hex": "#808080"
+      },
+      {
+        "name": "Negro",
+        "color": "negro",
+        "hex": "#000000"
+      }
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "description": "Minimalismo con mensaje, diseño que acompaña",
+    "inStock": true,
+    "images": [
+      "/Productos/5026006R ZANZI.png",
+      "/Productos/5026006R ZANZI (1).png",
+      "/Productos/5026006R ZANZI (2).png",
+      "/Productos/5026006R ZANZI (3).png"
+    ],
+    "colorImageAssociations": [
+      {
+        "color": {
+          "name": "Gris",
+          "color": "gris",
+          "hex": "#808080"
+        },
+        "images": [
+          "/Productos/5026006R ZANZI.png",
+          "/Productos/5026006R ZANZI (1).png"
+        ]
+      },
+      {
+        "color": {
+          "name": "Negro",
+          "color": "negro",
+          "hex": "#000000"
+        },
+        "images": [
+          "/Productos/5026006R ZANZI (2).png",
+          "/Productos/5026006R ZANZI (3).png"
+        ]
+      }
+    ],
+    "isReal": true,
+    "productCode": "5026006R"
   }
 ]
 

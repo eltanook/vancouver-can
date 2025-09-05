@@ -4,7 +4,7 @@ import { useState, Suspense } from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react"
+import { Phone, Mail, Facebook, Instagram } from "lucide-react"
 import Link from "next/link"
 import { useStore } from "@/lib/store"
 
@@ -63,15 +63,22 @@ function FooterContent() {
               </div>
               {/* Social Media - Movido más a la derecha */}
               <div className="flex space-x-3 justify-center md:justify-center">
-                <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors">
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61559345472017" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors"
+                >
                   <Facebook className="h-5 w-5 text-white" />
-                </button>
-                <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors">
+                </a>
+                <a 
+                  href="https://www.instagram.com/vancouver.canning/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors"
+                >
                   <Instagram className="h-5 w-5 text-white" />
-                </button>
-                <button className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center hover:bg-opacity-30 transition-colors">
-                  <Youtube className="h-5 w-5 text-white" />
-                </button>
+                </a>
               </div>
             </div>
 
