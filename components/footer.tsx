@@ -107,7 +107,7 @@ function FooterContent() {
               <div className="space-y-2 text-sm text-gray-300">
                 <div className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  <span>+54 9 11 3281-5864</span>
+                  <span>+54 9 11 5662-4852</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <svg className="h-4 w-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

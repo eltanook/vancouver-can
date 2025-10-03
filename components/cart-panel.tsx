@@ -31,7 +31,7 @@ export default function CartPanel({ isOpen, onClose }: CartPanelProps) {
     message += `\nTotal: $${(total || 0).toLocaleString()}`
 
     const encodedMessage = encodeURIComponent(message)
-    window.open(`https://wa.me/5491132815864?text=${encodedMessage}`, '_blank')
+    window.open(`https://wa.me/5491156624852?text=${encodedMessage}`, '_blank')
   }
 
   return (
