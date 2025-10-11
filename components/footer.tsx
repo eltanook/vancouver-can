@@ -152,6 +152,15 @@ function FooterContent() {
             >
               Nexium Solutions
             </a>
+            {" "}y{" "}
+            <a 
+              href="https://ditiero.shop/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              DiTiero
+            </a>
           </p>
         </div>
       </div>
